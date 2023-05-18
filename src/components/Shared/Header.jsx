@@ -56,10 +56,12 @@ const Header = () => {
 						</ul>
 					</div>
 					<img src={logo} className="w-16" alt="" />
-					<h1 className="text-2xl font-bold text-orange-600">Marvel Toys</h1>
+					<h1 className="text-2xl font-extrabold text-orange-600">
+						Marvel Toys
+					</h1>
 				</div>
 				<div className="navbar-end w-full hidden lg:flex">
-					<ul className="menu menu-horizontal px-1 items-center">
+					<ul className="menu menu-horizontal px-1 items-center font-bold">
 						<li>
 							<Link to="/">Home</Link>
 						</li>

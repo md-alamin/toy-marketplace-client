@@ -10,42 +10,42 @@ const Gallery = () => {
 				<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 gap-y-20">
 					<div>
 						<img
-							className="w-full h-64 object-contain rounded-lg shadow-md"
+							className="w-full h-80 object-contain rounded-lg shadow-2xl py-10 bg-orange-50"
 							src="https://i.ibb.co/GTZmC29/Spider-Gwen-Action-Figure.jpg"
 							alt=""
 						/>
 					</div>
 					<div>
 						<img
-							className="w-full h-64 object-contain rounded-lg shadow-md"
+							className="w-full h-80 object-contain rounded-lg shadow-2xl py-10 bg-orange-50"
 							src="https://i.ibb.co/zfBgPgj/Black-Panther-Mask.jpg"
 							alt=""
 						/>
 					</div>
 					<div>
 						<img
-							className="w-full h-64 object-contain rounded-lg shadow-md"
+							className="w-full h-80 object-contain rounded-lg shadow-2xl py-10 bg-orange-50"
 							src="https://i.ibb.co/QvGSDCH/Rocket-Raccoon-Action-Figure.jpg"
 							alt=""
 						/>
 					</div>
 					<div>
 						<img
-							className="w-full h-64 object-contain rounded-lg shadow-md"
+							className="w-full h-80 object-contain rounded-lg shadow-2xl py-10 bg-orange-50"
 							src="https://i.ibb.co/LYqrgKX/Thor-Action-Figure.jpg"
 							alt=""
 						/>
 					</div>
 					<div>
 						<img
-							className="w-full h-64 object-contain rounded-lg shadow-md"
+							className="w-full h-80 object-contain rounded-lg shadow-2xl py-10 bg-orange-50"
 							src="https://i.ibb.co/k22bSC1/Jean-Grey-Statue.jpg"
 							alt=""
 						/>
 					</div>
 					<div>
 						<img
-							className="w-full h-64 object-contain rounded-lg shadow-md"
+							className="w-full h-80 object-contain rounded-lg shadow-2xl py-10 bg-orange-50"
 							src="https://i.ibb.co/0qM0Bb0/Thanos-Infinity-Gauntlet-Replica.jpg"
 							alt=""
 						/>
