@@ -10,6 +10,7 @@ import AuthProvider from './components/providers/AuthProvider';
 import PrivateRoute from './components/routes/PrivateRoute';
 import ErrorPage from './components/Pages/ErrorPage/ErrorPage';
 import Home from './components/Pages/Home/Home';
+import Loader from './components/Shared/Loader';
 
 const router = createBrowserRouter([
 	{
@@ -33,6 +34,7 @@ const router = createBrowserRouter([
 				path: 'register',
 				element: <Register></Register>,
 			},
+			{ path: 'loader', element: <Loader></Loader> },
 		],
 	},
 ]);
