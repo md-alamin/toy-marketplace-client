@@ -2,10 +2,10 @@ import React from 'react';
 
 const Newsletter = () => {
 	return (
-		<div className="py-10">
+		<div className="pb-10 pt-20 sm:pt-10">
 			<div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 				<div className="max-w-3xl mx-auto text-center">
-					<h2 className="text-3xl md:text-5xl font-bold mb-10">
+					<h2 className="text-2xl sm:text-5xl font-bold mb-10">
 						Subscribe to Our Newsletter
 					</h2>
 					<p className="mt-4 font-bold text-gray-800">

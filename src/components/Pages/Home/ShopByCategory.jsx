@@ -13,7 +13,9 @@ const ShopByCategory = () => {
 	}, [subcategory]);
 	return (
 		<div className="container mx-auto text-center py-20">
-			<h1 className="my-10 text-5xl font-bold">Our Category of Toys</h1>
+			<h1 className="my-10 text-2xl sm:text-5xl font-bold">
+				Our Category of Toys
+			</h1>
 			<div className="divider w-1/2 mx-auto"></div>
 			<div>
 				<Tab.Group>
