@@ -8,13 +8,14 @@ import Blogs from './components/Pages/Blogs/Blogs';
 import Login from './components/Pages/Login/Login';
 import Register from './components/Pages/Register/Register';
 import AuthProvider from './components/providers/AuthProvider';
-import Loader from './components/Shared/Loader';
 import PrivateRoute from './components/routes/PrivateRoute';
+import ErrorPage from './components/Pages/ErrorPage/ErrorPage';
 
 const router = createBrowserRouter([
 	{
 		path: '/',
 		element: <MainLayout></MainLayout>,
+		errorElement: <ErrorPage></ErrorPage>,
 		children: [
 			{
 				path: '/',
