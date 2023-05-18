@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link, useRouteError } from 'react-router-dom';
+import GenerateTitle from '../../utils/GenerateTitle';
 
 const ErrorPage = () => {
+	GenerateTitle('Marvel Toys | Error');
 	const { status, error } = useRouteError();
 	return (
 		<div className="flex items-center h-screen p-16 bg-blue-200">

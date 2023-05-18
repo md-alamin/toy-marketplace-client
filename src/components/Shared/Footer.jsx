@@ -3,8 +3,8 @@ import logo from '../../assets/logo.png';
 
 const Footer = () => {
 	return (
-		<>
-			<footer className="footer p-10 bg-base-100 text-base-content container mx-auto">
+		<div className="bg-base-300">
+			<footer className="footer p-10 text-base-content container mx-auto">
 				<div className="text-center mx-auto">
 					<img className="w-20 mx-auto" src={logo} alt="" />
 					<p className="font-extrabold">
@@ -64,10 +64,10 @@ const Footer = () => {
 					</a>
 				</div>
 			</footer>
-			<p className="footer footer-center p-4 bg-base-100 text-base-content">
+			<p className="footer footer-center p-4 text-base-content">
 				Copyright © 2023 - All right reserved by Marvel Toys Industries Ltd
 			</p>
-		</>
+		</div>
 	);
 };
 

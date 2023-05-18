@@ -4,11 +4,14 @@ import { FaGoogle } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
 import Loader from '../../Shared/Loader';
+import GenerateTitle from '../../utils/GenerateTitle';
 
 const Register = () => {
 	const [loader, setLoader] = useState(false);
 	const { createUser, updateInfo, logOut } = useContext(AuthContext);
 	const navigate = useNavigate();
+
+	GenerateTitle('Marvel Toys | Register');
 
 	const {
 		register,

@@ -3,13 +3,13 @@ import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './index.css';
 import MainLayout from './components/layout/MainLayout.jsx';
-import Home from './components/pages/Home/Home.jsx';
 import Blogs from './components/Pages/Blogs/Blogs';
 import Login from './components/Pages/Login/Login';
 import Register from './components/Pages/Register/Register';
 import AuthProvider from './components/providers/AuthProvider';
 import PrivateRoute from './components/routes/PrivateRoute';
 import ErrorPage from './components/Pages/ErrorPage/ErrorPage';
+import Home from './components/Pages/Home/Home';
 
 const router = createBrowserRouter([
 	{

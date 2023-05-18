@@ -3,8 +3,11 @@ import { useForm } from 'react-hook-form';
 import { FaGoogle } from 'react-icons/fa';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
+import GenerateTitle from '../../utils/GenerateTitle';
 
 const Login = () => {
+	GenerateTitle('Marvel Toys | Login');
+
 	const [loader, setLoader] = useState(false);
 	const { signIn, handleGoogleSignIn } = useContext(AuthContext);
 	const navigate = useNavigate();
