@@ -9,7 +9,7 @@ const Banner = () => {
 				backgroundImage: `url(${banner})`,
 			}}
 		>
-			<div className="hero-overlay bg-opacity-80"></div>
+			<div className="hero-overlay bg-opacity-90"></div>
 			<div className="hero-content text-center text-neutral-content">
 				<div className="max-w-xl text-orange-200">
 					<h1 className="mb-5 text-2xl sm:text-5xl font-bold">
@@ -21,7 +21,7 @@ const Banner = () => {
 						unfold.
 						<br />
 						At{' '}
-						<span className="font-extrabold text-orange-600">Marvel Toys</span>,
+						<span className="font-extrabold text-orange-500">Marvel Toys</span>,
 						we are on a mission to bring smiles to the faces of children and
 						unleash their boundless creativity.
 					</p>

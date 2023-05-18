@@ -1,7 +1,6 @@
 import React from 'react';
 
 const Subcategory = ({ toy }) => {
-	console.log(toy);
 	const { name, price, rating, image } = toy;
 
 	return (

@@ -11,6 +11,7 @@ import PrivateRoute from './components/routes/PrivateRoute';
 import ErrorPage from './components/Pages/ErrorPage/ErrorPage';
 import Home from './components/Pages/Home/Home';
 import Loader from './components/Shared/Loader';
+import AllToys from './components/Pages/AllToys/AllToys';
 
 const router = createBrowserRouter([
 	{
@@ -35,6 +36,11 @@ const router = createBrowserRouter([
 				element: <Register></Register>,
 			},
 			{ path: 'loader', element: <Loader></Loader> },
+			{
+				path: 'allToys',
+				element: <AllToys></AllToys>,
+				loader: () => fetch('http://localhost:5000/allToys'),
+			},
 		],
 	},
 ]);
