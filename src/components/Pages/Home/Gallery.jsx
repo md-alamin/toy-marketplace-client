@@ -11,14 +11,14 @@ const Gallery = () => {
 					<div>
 						<img
 							className="w-full h-64 object-contain rounded-lg shadow-md"
-							src="https://i.ibb.co/zfBgPgj/Black-Panther-Mask.jpg"
+							src="https://i.ibb.co/GTZmC29/Spider-Gwen-Action-Figure.jpg"
 							alt=""
 						/>
 					</div>
 					<div>
 						<img
 							className="w-full h-64 object-contain rounded-lg shadow-md"
-							src="https://i.ibb.co/GTZmC29/Spider-Gwen-Action-Figure.jpg"
+							src="https://i.ibb.co/zfBgPgj/Black-Panther-Mask.jpg"
 							alt=""
 						/>
 					</div>
