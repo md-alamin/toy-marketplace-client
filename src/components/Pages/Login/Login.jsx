@@ -4,6 +4,7 @@ import { FaGoogle } from 'react-icons/fa';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
 import GenerateTitle from '../../utils/GenerateTitle';
+import Loader from '../../Shared/Loader';
 
 const Login = () => {
 	GenerateTitle('Marvel Toys | Login');
@@ -22,14 +23,16 @@ const Login = () => {
 
 	const onSubmit = (data) => {
 		setLoader(true);
-		signIn(data?.email, data?.password).then((result) => {
-			const loggedUser = result.user;
-			navigate(from, { replace: true });
-			setLoader(false).catch((error) => {
+		signIn(data?.email, data?.password)
+			.then((result) => {
+				const loggedUser = result.user;
+				navigate(from, { replace: true });
+				setLoader(false);
+			})
+			.catch((error) => {
 				console.log(error);
 				setLoader(false);
 			});
-		});
 	};
 
 	const googleLogin = () => {
@@ -41,6 +44,10 @@ const Login = () => {
 			})
 			.catch((error) => console.log(error));
 	};
+
+	if (loader) {
+		return <Loader></Loader>;
+	}
 
 	return (
 		<div className="bg-base-100">
