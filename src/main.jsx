@@ -14,6 +14,7 @@ import Loader from './components/Shared/Loader';
 import AllToys from './components/Pages/AllToys/AllToys';
 import AddAToy from './components/Pages/AddAToy/AddAToy';
 import MyToys from './components/Pages/MyToys/MyToys';
+import ViewDetails from './components/Shared/ViewDetails';
 
 const router = createBrowserRouter([
 	{
@@ -57,6 +58,18 @@ const router = createBrowserRouter([
 						<MyToys></MyToys>
 					</PrivateRoute>
 				),
+			},
+			{
+				path: 'toy/:id',
+				element: (
+					<PrivateRoute>
+						<ViewDetails></ViewDetails>
+					</PrivateRoute>
+				),
+				loader: ({ params }) =>
+					fetch(
+						`https://toy-marketplace-server-tau.vercel.app/toy/${params.id}`
+					),
 			},
 		],
 	},

@@ -7,7 +7,9 @@ const ShopByCategory = () => {
 	const [displayToys, setDisplayToys] = useState([]);
 
 	useEffect(() => {
-		fetch(`http://localhost:5000/subcategory/${subcategory}`)
+		fetch(
+			`https://toy-marketplace-server-tau.vercel.app/subcategory/${subcategory}`
+		)
 			.then((res) => res.json())
 			.then((data) => {
 				setDisplayToys(data);

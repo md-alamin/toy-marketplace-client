@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Modal } from 'react-responsive-modal';
 import 'react-responsive-modal/styles.css';
+import { Link } from 'react-router-dom';
 
 const ToyTable = ({ toy, update, handleDelete, onSubmit }) => {
 	const [showModal, setShowModal] = useState(false);
@@ -122,9 +123,11 @@ const ToyTable = ({ toy, update, handleDelete, onSubmit }) => {
 						</button>
 					</div>
 				) : (
-					<button className="btn bg-orange-600 border-none hover:shadow-2xl btn-xs">
-						View Details
-					</button>
+					<Link to={`/toy/${toy._id}`}>
+						<button className="btn bg-orange-600 border-none hover:shadow-2xl btn-xs">
+							View Details
+						</button>
+					</Link>
 				)}
 			</th>
 		</tr>

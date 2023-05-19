@@ -10,14 +10,14 @@ const MyToys = () => {
 	const [userToy, setUserToy] = useState([]);
 
 	useEffect(() => {
-		fetch(`http://localhost:5000/user/${user.email}`)
+		fetch(`https://toy-marketplace-server-tau.vercel.app/user/${user.email}`)
 			.then((res) => res.json())
 			.then((data) => setUserToy(data));
 	}, []);
 
 	const onSubmit = (data) => {
 		console.log(data);
-		fetch(`http://localhost:5000/update/${data.id}`, {
+		fetch(`https://toy-marketplace-server-tau.vercel.app/update/${data.id}`, {
 			method: 'PUT',
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify(data),
@@ -32,7 +32,9 @@ const MyToys = () => {
 						showConfirmButton: false,
 						timer: 2000,
 					});
-					fetch(`http://localhost:5000/user/${user.email}`)
+					fetch(
+						`https://toy-marketplace-server-tau.vercel.app/user/${user.email}`
+					)
 						.then((res) => res.json())
 						.then((data) => setUserToy(data));
 				} else {
@@ -66,7 +68,7 @@ const MyToys = () => {
 			})
 			.then((result) => {
 				if (result.isConfirmed) {
-					fetch(`http://localhost:5000/delete/${id}`, {
+					fetch(`https://toy-marketplace-server-tau.vercel.app/delete/${id}`, {
 						method: 'DELETE',
 					})
 						.then((res) => res.json())

@@ -6,7 +6,7 @@ const AllToys = () => {
 	const [displayToys, setDisplayToys] = useState([]);
 
 	useEffect(() => {
-		fetch(`http://localhost:5000/allToys`)
+		fetch(`https://toy-marketplace-server-tau.vercel.app/allToys`)
 			.then((res) => res.json())
 			.then((data) => {
 				setDisplayToys(data);
@@ -19,7 +19,9 @@ const AllToys = () => {
 		event.preventDefault();
 		const form = event.target;
 		const search = form.search.value;
-		fetch(`http://localhost:5000/allToys/search/${search}`)
+		fetch(
+			`https://toy-marketplace-server-tau.vercel.app/allToys/search/${search}`
+		)
 			.then((res) => res.json())
 			.then((data) => {
 				setDisplayToys(data);
