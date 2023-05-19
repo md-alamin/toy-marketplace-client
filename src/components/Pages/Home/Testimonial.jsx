@@ -39,8 +39,7 @@ const Testimonial = () => {
 						<p>
 							I stumbled upon this website while searching for unique and
 							engaging toys, and I'm so glad I did! The selection is fantastic,
-							and the toys have exceeded my expectations. My kids are constantly
-							engaged and entertained.
+							and the toys have exceeded my expectations.
 						</p>
 						<h2 className="card-title pb-4 sm:pb-0 text-right ml-auto">
 							- David R., Parent

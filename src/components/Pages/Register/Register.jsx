@@ -5,6 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
 import Loader from '../../Shared/Loader';
 import GenerateTitle from '../../utils/GenerateTitle';
+import Swal from 'sweetalert2';
 
 const Register = () => {
 	const [loader, setLoader] = useState(false);
@@ -32,8 +33,22 @@ const Register = () => {
 					.catch((error) => console.log(error));
 				navigate('/login');
 				setLoader(false);
+				Swal.fire({
+					icon: 'success',
+					title: 'Successfully Registered',
+					showConfirmButton: false,
+					timer: 1500,
+				});
 			})
-			.catch((error) => console.log(error));
+			.catch((error) => {
+				setLoader(false);
+				Swal.fire({
+					icon: 'error',
+					title: 'Oops...',
+					text: error,
+					footer: 'Please use different email address',
+				});
+			});
 	};
 
 	if (loader) {
@@ -53,9 +68,7 @@ const Register = () => {
 					<input
 						className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
 						placeholder="Enter your name"
-						{...register('name', {
-							required: 'Name is required',
-						})}
+						{...register('name')}
 					/>
 					<span className="text-red-600">{errors.name?.message}</span>
 				</div>

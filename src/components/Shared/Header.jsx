@@ -77,7 +77,7 @@ const Header = () => {
 						)}
 						{user ? (
 							<li>
-								<Link>Add Toys</Link>
+								<Link to="/addAToy">Add A Toy</Link>
 							</li>
 						) : (
 							''

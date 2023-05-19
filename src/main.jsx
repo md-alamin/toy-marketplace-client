@@ -12,6 +12,7 @@ import ErrorPage from './components/Pages/ErrorPage/ErrorPage';
 import Home from './components/Pages/Home/Home';
 import Loader from './components/Shared/Loader';
 import AllToys from './components/Pages/AllToys/AllToys';
+import AddAToy from './components/Pages/AddAToy/AddAToy';
 
 const router = createBrowserRouter([
 	{
@@ -39,7 +40,14 @@ const router = createBrowserRouter([
 			{
 				path: 'allToys',
 				element: <AllToys></AllToys>,
-				loader: () => fetch('http://localhost:5000/allToys'),
+			},
+			{
+				path: 'addAToy',
+				element: (
+					<PrivateRoute>
+						<AddAToy></AddAToy>
+					</PrivateRoute>
+				),
 			},
 		],
 	},

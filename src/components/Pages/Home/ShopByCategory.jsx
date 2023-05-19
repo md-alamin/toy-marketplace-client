@@ -1,30 +1,19 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import { Tab } from '@headlessui/react';
 import Subcategory from './Subcategory';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-import Loader from '../../Shared/Loader';
 
 const ShopByCategory = () => {
 	const [subcategory, setSubcategory] = useState('avengers');
 	const [displayToys, setDisplayToys] = useState([]);
-	const [loading, setLoading] = useState(true);
 
 	useEffect(() => {
-		AOS.init({
-			// AOS configuration options (if needed)
-		});
 		fetch(`http://localhost:5000/subcategory/${subcategory}`)
 			.then((res) => res.json())
 			.then((data) => {
 				setDisplayToys(data);
-				setLoading(true);
 			})
 			.catch((e) => console.log(e));
 	}, [subcategory]);
-	if (loading) {
-		return <Loader></Loader>;
-	}
 	return (
 		<div className="container mx-auto text-center py-20">
 			<h1 className="my-10 text-2xl sm:text-5xl font-bold">
@@ -83,30 +72,21 @@ const ShopByCategory = () => {
 					<div className="divider"></div>
 					<Tab.Panels>
 						<Tab.Panel>
-							<div
-								data-aos="fade-up"
-								className="grid md:grid-cols-2 place-items-center"
-							>
+							<div className="grid md:grid-cols-2 place-items-center">
 								{displayToys.slice(0, 2).map((toy) => (
 									<Subcategory key={toy._id} toy={toy}></Subcategory>
 								))}
 							</div>
 						</Tab.Panel>
 						<Tab.Panel>
-							<div
-								data-aos="fade-up"
-								className="grid md:grid-cols-2 place-items-center"
-							>
+							<div className="grid md:grid-cols-2 place-items-center">
 								{displayToys.slice(0, 2).map((toy) => (
 									<Subcategory key={toy._id} toy={toy}></Subcategory>
 								))}
 							</div>
 						</Tab.Panel>
 						<Tab.Panel>
-							<div
-								data-aos="fade-up"
-								className="grid md:grid-cols-2 place-items-center"
-							>
+							<div className="grid md:grid-cols-2 place-items-center">
 								{displayToys.slice(0, 2).map((toy) => (
 									<Subcategory key={toy._id} toy={toy}></Subcategory>
 								))}

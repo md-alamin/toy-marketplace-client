@@ -5,6 +5,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
 import GenerateTitle from '../../utils/GenerateTitle';
 import Loader from '../../Shared/Loader';
+import Swal from 'sweetalert2';
 
 const Login = () => {
 	GenerateTitle('Marvel Toys | Login');
@@ -32,6 +33,12 @@ const Login = () => {
 			.catch((error) => {
 				console.log(error);
 				setLoader(false);
+				Swal.fire({
+					icon: 'error',
+					title: 'Oops...',
+					text: error,
+					footer: 'Please enter correct username/password',
+				});
 			});
 	};
 
