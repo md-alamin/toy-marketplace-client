@@ -37,7 +37,7 @@ const Register = () => {
 					icon: 'success',
 					title: 'Successfully Registered',
 					showConfirmButton: false,
-					timer: 1500,
+					timer: 2000,
 				});
 			})
 			.catch((error) => {
@@ -70,7 +70,6 @@ const Register = () => {
 						placeholder="Enter your name"
 						{...register('name')}
 					/>
-					<span className="text-red-600">{errors.name?.message}</span>
 				</div>
 
 				<div className="mb-4">
@@ -117,7 +116,6 @@ const Register = () => {
 						placeholder="Enter your photo URL"
 						{...register('photo')}
 					/>
-					<span className="text-red-600">{errors.photo?.message}</span>
 				</div>
 
 				<div className="text-center">

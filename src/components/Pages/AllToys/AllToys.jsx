@@ -4,9 +4,9 @@ import GenerateTitle from '../../utils/GenerateTitle';
 
 const AllToys = () => {
 	const [displayToys, setDisplayToys] = useState([]);
-	const [link, setLink] = useState('');
+
 	useEffect(() => {
-		fetch(`http://localhost:5000/allToys${link}`)
+		fetch(`http://localhost:5000/allToys`)
 			.then((res) => res.json())
 			.then((data) => {
 				setDisplayToys(data);
@@ -19,7 +19,6 @@ const AllToys = () => {
 		event.preventDefault();
 		const form = event.target;
 		const search = form.search.value;
-		console.log(search);
 		fetch(`http://localhost:5000/allToys/search/${search}`)
 			.then((res) => res.json())
 			.then((data) => {
@@ -59,26 +58,32 @@ const AllToys = () => {
 					</button>
 				</div>
 			</form>
-			<div className="overflow-x-auto mx-4 sm:mx-10 text-center mb-20">
-				<table className="table w-full table-zebra text-center">
-					{/* head */}
-					<thead>
-						<tr>
-							<th className="text-xl">Seller</th>
-							<th className="text-xl">Toy Name</th>
-							<th className="text-xl">Sub-category</th>
-							<th className="text-xl">Price</th>
-							<th className="text-xl">Available Quantity</th>
-							<th></th>
-						</tr>
-					</thead>
-					<tbody>
-						{displayToys.map((toy) => (
-							<ToyTable key={toy._id} toy={toy}></ToyTable>
-						))}
-					</tbody>
-				</table>
-			</div>
+			{displayToys.length !== 0 ? (
+				<div className="overflow-x-auto mx-4 sm:mx-10 text-center mb-20">
+					<table className="table w-full table-zebra text-center">
+						{/* head */}
+						<thead>
+							<tr>
+								<th className="text-xl">Seller</th>
+								<th className="text-xl">Toy Name</th>
+								<th className="text-xl">Sub-category</th>
+								<th className="text-xl">Price</th>
+								<th className="text-xl">Available Quantity</th>
+								<th></th>
+							</tr>
+						</thead>
+						<tbody>
+							{displayToys.map((toy) => (
+								<ToyTable key={toy._id} toy={toy}></ToyTable>
+							))}
+						</tbody>
+					</table>
+				</div>
+			) : (
+				<h4 className="text-center my-10 text-red-500 text-2xl font-bold">
+					No result found
+				</h4>
+			)}
 		</div>
 	);
 };
