@@ -2,9 +2,13 @@ import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { AuthContext } from '../../providers/AuthProvider';
 import Swal from 'sweetalert2';
+import GenerateTitle from '../../utils/GenerateTitle';
+import { useNavigate } from 'react-router-dom';
 
 const AddAToy = () => {
+	GenerateTitle('Marvel Toys | Add A Toy');
 	const { user } = useContext(AuthContext);
+	const navigate = useNavigate();
 	const {
 		register,
 		handleSubmit,
@@ -26,9 +30,8 @@ const AddAToy = () => {
 			showConfirmButton: false,
 			timer: 2000,
 		});
+		navigate('/myToys');
 	};
-
-	// console.log(watch('example')); // watch input value by passing the name of it
 
 	return (
 		<div>
@@ -113,7 +116,7 @@ const AddAToy = () => {
 								className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
 								placeholder="Enter the price"
 								{...register('price', {
-									required: 'Pirce is required',
+									required: 'Price is required',
 								})}
 							/>
 						</div>
