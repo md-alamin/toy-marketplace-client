@@ -15,6 +15,7 @@ const Login = () => {
 	const navigate = useNavigate();
 	const location = useLocation();
 	const from = location.state?.from?.pathname || '/';
+	console.log(from);
 
 	const {
 		register,
@@ -61,16 +62,6 @@ const Login = () => {
 			<form className="w-1/3 mx-auto py-10" onSubmit={handleSubmit(onSubmit)}>
 				<h1 className="text-5xl text-center font-bold">Please Login</h1>
 				<div className="divider mb-10"></div>
-				{location.state?.from?.pathname ? (
-					<div className="text-center mb-2">
-						<small className="text-red-600 font-bold">
-							Please login first to go to "
-							{(location.state?.from?.pathname).slice(1)}"
-						</small>
-					</div>
-				) : (
-					''
-				)}
 				<div className="mb-4">
 					<label className="block text-gray-700 text-sm font-bold mb-2">
 						Email

@@ -23,7 +23,7 @@ const ViewDetails = () => {
 						<p>Sub-category: {toyDetails.sub_category}</p>
 						<p>Price: ${toyDetails.price}</p>
 
-						<p>Rating: {toyDetails.rating}</p>
+						{toyDetails.rating && <p>Rating: {toyDetails.rating}</p>}
 						<p>Quantity: {toyDetails.quantity}</p>
 					</div>
 

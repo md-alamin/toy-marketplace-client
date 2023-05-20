@@ -1,8 +1,26 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
+import { AuthContext } from '../../providers/AuthProvider';
+import { Link, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const Subcategory = ({ toy }) => {
 	const { name, price, rating, image } = toy;
+	const { user } = useContext(AuthContext);
+	const navigate = useNavigate();
 
+	const loginModal = () => {
+		Swal.fire({
+			title: '<strong>You have to log in first to view details</strong>',
+			icon: 'info',
+			showCloseButton: true,
+			focusConfirm: false,
+			showConfirmButton: false,
+			timer: 2000,
+		});
+		setTimeout(() => {
+			navigate(`/toy/${toy._id}`);
+		}, 2000);
+	};
 	return (
 		<div className="card mt-4 md:w-96 bg-orange-50 shadow-xl">
 			<figure className="px-10 pt-10">
@@ -15,9 +33,22 @@ const Subcategory = ({ toy }) => {
 					<p>Rating: {rating} star</p>
 				</div>
 				<div className="card-actions">
-					<button className="btn bg-orange-600 border-none hover:shadow-2xl hover:bg-orange-600">
-						View Details
-					</button>
+					{user ? (
+						<Link to={`/toy/${toy._id}`}>
+							<button className="btn bg-orange-600 border-none hover:shadow-2xl hover:bg-orange-600">
+								View Details
+							</button>
+						</Link>
+					) : (
+						<>
+							<button
+								onClick={loginModal}
+								className="btn bg-orange-600 border-none hover:shadow-2xl hover:bg-orange-600"
+							>
+								View Details
+							</button>
+						</>
+					)}
 				</div>
 			</div>
 		</div>

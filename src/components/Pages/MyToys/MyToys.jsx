@@ -19,7 +19,7 @@ const MyToys = () => {
 		console.log(data);
 		fetch(`https://toy-marketplace-server-tau.vercel.app/update/${data.id}`, {
 			method: 'PUT',
-			headers: { 'Content-Type': 'application/json' },
+			headers: { 'content-type': 'application/json' },
 			body: JSON.stringify(data),
 		})
 			.then((res) => res.json())
@@ -45,6 +45,14 @@ const MyToys = () => {
 						timer: 2000,
 					});
 				}
+			})
+			.catch((e) => {
+				Swal.fire({
+					icon: 'error',
+					title: 'Error occured',
+					showConfirmButton: false,
+					timer: 2000,
+				});
 			});
 	};
 
