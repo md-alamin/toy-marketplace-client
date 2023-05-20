@@ -3,13 +3,14 @@ import logo from '../../assets/logo.png';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../providers/AuthProvider';
 import userProfile from '../../assets/default-avatar.png';
+import Swal from 'sweetalert2';
 
 const Header = () => {
 	const { user, logOut } = useContext(AuthContext);
 
 	const handleLogOut = () => {
 		logOut()
-			.then()
+			.then(Swal.fire('Successfully logged out!'))
 			.catch((error) => console.log(error));
 	};
 

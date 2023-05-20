@@ -1,17 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import ToyTable from './ToyTable';
 import GenerateTitle from '../../utils/GenerateTitle';
+import Loader from '../../Shared/Loader';
 
 const AllToys = () => {
 	const [displayToys, setDisplayToys] = useState([]);
+	const [loader, setLoader] = useState(true);
 
 	useEffect(() => {
 		fetch(`https://toy-marketplace-server-tau.vercel.app/allToys`)
 			.then((res) => res.json())
 			.then((data) => {
 				setDisplayToys(data);
+				setLoader(false);
 			})
-			.catch((e) => console.log(e));
+			.catch((e) => {
+				console.log(e);
+			});
 	}, []);
 	GenerateTitle('Marvel Toys | All Toys');
 
@@ -28,6 +33,10 @@ const AllToys = () => {
 			})
 			.catch((e) => console.log(e));
 	};
+
+	if (loader) {
+		return <Loader></Loader>;
+	}
 
 	return (
 		<div>

@@ -3,16 +3,21 @@ import { AuthContext } from '../../providers/AuthProvider';
 import ToyTable from '../AllToys/ToyTable';
 import Swal from 'sweetalert2';
 import GenerateTitle from '../../utils/GenerateTitle';
+import Loader from '../../Shared/Loader';
 
 const MyToys = () => {
 	GenerateTitle('Marvel Toys | My Toys');
 	const { user } = useContext(AuthContext);
 	const [userToy, setUserToy] = useState([]);
+	const [loader, setLoader] = useState(true);
 
 	useEffect(() => {
 		fetch(`https://toy-marketplace-server-tau.vercel.app/user/${user.email}`)
 			.then((res) => res.json())
-			.then((data) => setUserToy(data));
+			.then((data) => {
+				setUserToy(data);
+				setLoader(false);
+			});
 	}, []);
 
 	const onSubmit = (data) => {
@@ -99,6 +104,11 @@ const MyToys = () => {
 				}
 			});
 	};
+
+	if (loader) {
+		return <Loader></Loader>;
+	}
+
 	return (
 		<div>
 			<h1 className="my-10 text-2xl sm:text-5xl font-bold text-center">
