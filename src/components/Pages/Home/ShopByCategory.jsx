@@ -74,25 +74,30 @@ const ShopByCategory = () => {
 					<div className="divider"></div>
 					<Tab.Panels>
 						<Tab.Panel>
-							<div className="grid md:grid-cols-2 place-items-center">
-								{displayToys.slice(0, 2).map((toy) => (
+							<div className="grid lg:grid-cols-3 place-items-center">
+								{displayToys.slice(0, 3).map((toy) => (
 									<Subcategory key={toy._id} toy={toy}></Subcategory>
 								))}
 							</div>
 						</Tab.Panel>
 						<Tab.Panel>
-							<div className="grid md:grid-cols-2 place-items-center">
-								{displayToys.slice(0, 2).map((toy) => (
+							<div className="grid lg:grid-cols-3 place-items-center">
+								{displayToys.slice(0, 3).map((toy) => (
 									<Subcategory key={toy._id} toy={toy}></Subcategory>
 								))}
 							</div>
 						</Tab.Panel>
 						<Tab.Panel>
-							<div className="grid md:grid-cols-2 place-items-center">
-								{displayToys.slice(0, 2).map((toy) => (
+							<div className="grid lg:grid-cols-3 place-items-center">
+								{displayToys.slice(0, 3).map((toy) => (
 									<Subcategory key={toy._id} toy={toy}></Subcategory>
 								))}
 							</div>
+							{/* <btn className="btn bg-orange-600 border-none hover:shadow-2xl hover:bg-orange-600 mt-8">
+								View All in Sub-Category
+							</btn>
+							for later maybe
+							 */}
 						</Tab.Panel>
 					</Tab.Panels>
 				</Tab.Group>

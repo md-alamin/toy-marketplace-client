@@ -10,6 +10,7 @@ const MyToys = () => {
 	const { user } = useContext(AuthContext);
 	const [userToy, setUserToy] = useState([]);
 	const [loader, setLoader] = useState(true);
+	const [selectedValue, setSelectedValue] = useState('option1');
 
 	useEffect(() => {
 		fetch(`https://toy-marketplace-server-tau.vercel.app/user/${user.email}`)
@@ -105,6 +106,30 @@ const MyToys = () => {
 			});
 	};
 
+	const handleSort = (event) => {
+		setLoader(true);
+		setSelectedValue(event.target.value);
+		if (event.target.value === 'option2') {
+			fetch(
+				`https://toy-marketplace-server-tau.vercel.app/sort/${user.email}?sort=1`
+			)
+				.then((res) => res.json())
+				.then((data) => {
+					setUserToy(data);
+					setLoader(false);
+				});
+		} else if (event.target.value === 'option3') {
+			fetch(
+				`https://toy-marketplace-server-tau.vercel.app/sort/${user.email}?sort=-1`
+			)
+				.then((res) => res.json())
+				.then((data) => {
+					setUserToy(data);
+					setLoader(false);
+				});
+		}
+	};
+
 	if (loader) {
 		return <Loader></Loader>;
 	}
@@ -115,31 +140,46 @@ const MyToys = () => {
 				This is my toys
 			</h1>
 			{userToy.length !== 0 ? (
-				<div className="overflow-x-auto mx-4 sm:mx-10 text-center mb-20">
-					<table className="table w-full table-zebra text-center">
-						{/* head */}
-						<thead>
-							<tr>
-								<th className="text-xl">Toy Name</th>
-								<th className="text-xl">Sub-category</th>
-								<th className="text-xl">Price</th>
-								<th className="text-xl">Available Quantity</th>
-								<th></th>
-							</tr>
-						</thead>
-						<tbody>
-							{userToy.map((toy) => (
-								<ToyTable
-									key={toy._id}
-									toy={toy}
-									update={true}
-									handleDelete={handleDelete}
-									onSubmit={onSubmit}
-								></ToyTable>
-							))}
-						</tbody>
-					</table>
-				</div>
+				<>
+					<div className="text-center">
+						<select
+							onChange={handleSort}
+							value={selectedValue}
+							className="w-1/2 md:w-1/3 px-4 py-2 pr-8 leading-tight bg-white border border-orange-300 rounded-md appearance-none focus:outline-none focus:border-orange-600"
+						>
+							<option value="option1" disabled>
+								Sort by Price
+							</option>
+							<option value="option2">Ascending order</option>
+							<option value="option3">Descending order</option>
+						</select>
+					</div>
+					<div className="overflow-x-auto mx-4 sm:mx-10 text-center mb-20">
+						<table className="table w-full table-zebra text-center">
+							{/* head */}
+							<thead>
+								<tr>
+									<th className="text-xl">Toy Name</th>
+									<th className="text-xl">Sub-category</th>
+									<th className="text-xl">Price</th>
+									<th className="text-xl">Available Quantity</th>
+									<th></th>
+								</tr>
+							</thead>
+							<tbody>
+								{userToy.map((toy) => (
+									<ToyTable
+										key={toy._id}
+										toy={toy}
+										update={true}
+										handleDelete={handleDelete}
+										onSubmit={onSubmit}
+									></ToyTable>
+								))}
+							</tbody>
+						</table>
+					</div>
+				</>
 			) : (
 				<h4 className="text-center my-10 text-red-500 text-2xl font-bold">
 					No toys added yet!

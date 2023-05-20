@@ -22,13 +22,13 @@ const Subcategory = ({ toy }) => {
 		}, 2000);
 	};
 	return (
-		<div className="card mt-4 md:w-96 bg-orange-50 shadow-xl">
+		<div className="card max-w-[280px] min-h-[512px] mt-4 md:w-96 bg-orange-50 shadow-xl border hover:scale-105 transition-all">
 			<figure className="px-10 pt-10">
-				<img src={image} alt="Shoes" className="rounded-xl h-52" />
+				<img src={image} alt="Shoes" className="rounded-xl h-52 lg:w-40" />
 			</figure>
 			<div className="card-body items-center text-center">
 				<h2 className="card-title">{name}</h2>
-				<div className="flex justify-between w-full my-4">
+				<div className="flex justify-between w-full my-4 gap-6">
 					<p>Price: ${price}</p>
 					<p>Rating: {rating} star</p>
 				</div>

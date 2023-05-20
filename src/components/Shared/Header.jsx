@@ -17,7 +17,7 @@ const Header = () => {
 	return (
 		<div className="bg-base-300">
 			<div className="navbar container mx-auto">
-				<div className="navbar-start w-1/4">
+				<div>
 					<div className="dropdown">
 						<label tabIndex={0} className="btn btn-ghost lg:hidden">
 							<svg
@@ -40,24 +40,59 @@ const Header = () => {
 							className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
 						>
 							<li>
-								<a>Home</a>
+								<Link to="/">Home</Link>
 							</li>
 							<li>
-								<a>All toys</a>
+								<Link to="/allToys">All toys</Link>
 							</li>
+							{user ? (
+								<li>
+									<Link to="/myToys">My toys</Link>
+								</li>
+							) : (
+								''
+							)}
+							{user ? (
+								<li>
+									<Link to="/addAToy">Add A Toy</Link>
+								</li>
+							) : (
+								''
+							)}
 							<li>
-								<a>My toys</a>
+								<Link to="/blogs">Blogs</Link>
 							</li>
-							<li>
-								<a>Add Toys</a>
-							</li>
-							<li>
-								<a>Blogs</a>
-							</li>
+							{user ? (
+								<div className="flex flex-col sm:flex-row items-center justify-between mt-4 sm:mt-0">
+									<div
+										className="tooltip tooltip-bottom mr-4"
+										data-tip={user.displayName && user.displayName}
+									>
+										{user.photoURL ? (
+											<img
+												className="ml-5 h-10 w-10 rounded-full"
+												src={user.photoURL}
+												alt=""
+											/>
+										) : (
+											<img
+												className="ml-5 h-10 w-10 rounded-full"
+												src={userProfile}
+												alt=""
+											/>
+										)}
+									</div>
+									<Link onClick={handleLogOut}>Log Out</Link>
+								</div>
+							) : (
+								<li>
+									<Link to="/login">Log in</Link>
+								</li>
+							)}
 						</ul>
 					</div>
 					<img src={logo} className="w-16" alt="" />
-					<h1 className="text-2xl font-extrabold text-orange-600">
+					<h1 className="text-2xl font-bold sm:font-extrabold text-orange-600">
 						Marvel Toys
 					</h1>
 				</div>
