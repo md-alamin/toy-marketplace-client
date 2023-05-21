@@ -15,7 +15,7 @@ const Header = () => {
 	};
 
 	return (
-		<div className="bg-base-300">
+		<div className="bg-base-300 md:sticky top-0 z-10">
 			<div className="navbar container mx-auto">
 				<div>
 					<div className="dropdown">
@@ -82,7 +82,12 @@ const Header = () => {
 											/>
 										)}
 									</div>
-									<Link onClick={handleLogOut}>Log Out</Link>
+									<Link
+										onClick={handleLogOut}
+										className="btn btn-wide bg-orange-500 border-none hover:bg-orange-600 hover:shadow-xl"
+									>
+										Log Out
+									</Link>
 								</div>
 							) : (
 								<li>
@@ -92,7 +97,7 @@ const Header = () => {
 						</ul>
 					</div>
 					<img src={logo} className="w-16" alt="" />
-					<h1 className="text-2xl font-bold sm:font-extrabold text-orange-600">
+					<h1 className="text-2xl font-bold min-w-max sm:font-extrabold text-orange-600">
 						Marvel Toys
 					</h1>
 				</div>
@@ -141,7 +146,12 @@ const Header = () => {
 										/>
 									)}
 								</div>
-								<Link onClick={handleLogOut}>Log Out</Link>
+								<Link
+									onClick={handleLogOut}
+									className="btn bg-orange-500 border-none hover:bg-orange-600 hover:shadow-xl"
+								>
+									Log Out
+								</Link>
 							</div>
 						) : (
 							<li>

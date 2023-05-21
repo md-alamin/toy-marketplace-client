@@ -1,16 +1,29 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import avatar1 from '../../../assets/avatar-1.avif';
 import avatar2 from '../../../assets/avatar-2.avif';
 import { FaQuoteLeft } from 'react-icons/fa';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const Testimonial = () => {
+	useEffect(() => {
+		AOS.init({
+			// AOS configuration options (if needed)
+		});
+	}, []);
 	return (
 		<>
 			<h1 className="mt-0 mb-10 sm:mt-10 sm:mb-20 text-2xl sm:text-5xl font-bold text-center">
 				Our Testimonial
 			</h1>
 			<div className="grid md:grid-cols-2 gap-32 md:gap-20 place-items-center mb-20 sm:mb-40 px-4">
-				<div className="card md:w-96 h-96 bg-orange-100 shadow-xl relative">
+				<div
+					data-aos="fade-zoom-in"
+					data-aos-offset="200"
+					data-aos-easing="ease-in-sine"
+					data-aos-duration="600"
+					className="card md:w-96 h-96 bg-orange-100 shadow-xl relative"
+				>
 					<FaQuoteLeft className="absolute left-10 sm:left-1/4 top-1/4"></FaQuoteLeft>
 					<div className="avatar mx-auto pt-20">
 						<div className="w-36 rounded-full">
@@ -28,7 +41,13 @@ const Testimonial = () => {
 						</h2>
 					</div>
 				</div>
-				<div className="card md:w-96 h-96 bg-orange-100 shadow-xl relative">
+				<div
+					data-aos="fade-zoom-in"
+					data-aos-offset="200"
+					data-aos-easing="ease-in-sine"
+					data-aos-duration="600"
+					className="card md:w-96 h-96 bg-orange-100 shadow-xl relative"
+				>
 					<FaQuoteLeft className="absolute left-10 sm:left-1/4 top-1/4"></FaQuoteLeft>
 					<div className="avatar mx-auto pt-20">
 						<div className="w-36 rounded-full">

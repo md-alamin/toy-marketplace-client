@@ -141,11 +141,11 @@ const MyToys = () => {
 			</h1>
 			{userToy.length !== 0 ? (
 				<>
-					<div className="text-center">
+					<div className="text-center mb-4">
 						<select
 							onChange={handleSort}
 							value={selectedValue}
-							className="w-1/2 md:w-1/3 px-4 py-2 pr-8 leading-tight bg-white border border-orange-300 rounded-md appearance-none focus:outline-none focus:border-orange-600"
+							className="w-2/3 md:w-1/3 px-4 py-2 pr-8 leading-tight bg-white border border-orange-300 rounded-md appearance-none focus:outline-none focus:border-orange-600 text-center"
 						>
 							<option value="option1" disabled>
 								Sort by Price
@@ -155,10 +155,10 @@ const MyToys = () => {
 						</select>
 					</div>
 					<div className="overflow-x-auto mx-4 sm:mx-10 text-center mb-20">
-						<table className="table w-full table-zebra text-center">
+						<table className="table-normal w-full text-center">
 							{/* head */}
 							<thead>
-								<tr>
+								<tr className="bg-base-300 rounded">
 									<th className="text-xl">Toy Name</th>
 									<th className="text-xl">Sub-category</th>
 									<th className="text-xl">Price</th>

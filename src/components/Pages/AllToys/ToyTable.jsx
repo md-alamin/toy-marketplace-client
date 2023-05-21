@@ -40,7 +40,7 @@ const ToyTable = ({ toy, update, handleDelete, onSubmit }) => {
 									Update Toys
 								</h2>
 								<form onSubmit={handleSubmit(onSubmit)}>
-									<div className="flex justify-around">
+									<div className="flex flex-col md:flex-row justify-around">
 										<div className="mb-4">
 											<label className="block text-gray-700 text-sm font-bold mb-2">
 												Price <small className="text-red-600">*required</small>
@@ -65,7 +65,6 @@ const ToyTable = ({ toy, update, handleDelete, onSubmit }) => {
 											defaultValue={toy?._id}
 											{...register('id')}
 										/>
-										;
 										<div className="mb-4">
 											<label className="block text-gray-700 text-sm font-bold mb-2">
 												Available Quantity{' '}

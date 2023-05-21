@@ -43,7 +43,7 @@ const AllToys = () => {
 			<h1 className="my-10 text-2xl sm:text-5xl font-bold text-center">
 				Collection of all our Toys!
 			</h1>
-			<form onSubmit={searchFunction} className="form-control mb-2">
+			<form onSubmit={searchFunction} className="form-control mb-4">
 				<div className="input-group justify-center">
 					<input
 						type="text"
@@ -71,12 +71,12 @@ const AllToys = () => {
 			</form>
 			{displayToys.length !== 0 ? (
 				<div className="overflow-x-auto mx-4 sm:mx-10 text-center mb-20">
-					<table className="table w-full table-zebra text-center">
+					<table className="table-normal w-full  text-center">
 						{/* head */}
 						<thead>
-							<tr>
-								<th className="text-xl">Seller</th>
+							<tr className="bg-base-300 rounded">
 								<th className="text-xl">Toy Name</th>
+								<th className="text-xl">Seller</th>
 								<th className="text-xl">Sub-category</th>
 								<th className="text-xl">Price</th>
 								<th className="text-xl">Available Quantity</th>

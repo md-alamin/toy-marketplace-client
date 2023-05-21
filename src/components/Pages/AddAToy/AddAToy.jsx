@@ -39,7 +39,7 @@ const AddAToy = () => {
 				Add your toy here!
 			</h1>
 			<form className="w-3/4 mx-auto py-10" onSubmit={handleSubmit(onSubmit)}>
-				<div className="grid grid-cols-2 gap-10">
+				<div className="grid md:grid-cols-2 gap-10">
 					<div className="mb-4">
 						<label className="block text-gray-700 text-sm font-bold mb-2">
 							Picture URL <small className="text-red-600">*required</small>

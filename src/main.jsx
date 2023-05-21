@@ -38,7 +38,6 @@ const router = createBrowserRouter([
 				path: 'register',
 				element: <Register></Register>,
 			},
-			{ path: 'loader', element: <Loader></Loader> },
 			{
 				path: 'allToys',
 				element: <AllToys></AllToys>,

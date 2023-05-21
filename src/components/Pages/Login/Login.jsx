@@ -6,6 +6,8 @@ import { AuthContext } from '../../providers/AuthProvider';
 import GenerateTitle from '../../utils/GenerateTitle';
 import Loader from '../../Shared/Loader';
 import Swal from 'sweetalert2';
+import Lottie from 'react-lottie';
+import loginImg from '../../../assets/login.json';
 
 const Login = () => {
 	GenerateTitle('Marvel Toys | Login');
@@ -15,7 +17,15 @@ const Login = () => {
 	const navigate = useNavigate();
 	const location = useLocation();
 	const from = location.state?.from?.pathname || '/';
-	console.log(from);
+
+	const defaultOptions = {
+		loop: true,
+		autoplay: true,
+		animationData: loginImg,
+		rendererSettings: {
+			preserveAspectRatio: 'xMidYMid slice',
+		},
+	};
 
 	const {
 		register,
@@ -59,70 +69,81 @@ const Login = () => {
 
 	return (
 		<div className="bg-base-100">
-			<form className="w-1/3 mx-auto py-10" onSubmit={handleSubmit(onSubmit)}>
+			<form className="w-2/3 mx-auto py-4" onSubmit={handleSubmit(onSubmit)}>
 				<h1 className="text-5xl text-center font-bold">Please Login</h1>
 				<div className="divider mb-10"></div>
-				<div className="mb-4">
-					<label className="block text-gray-700 text-sm font-bold mb-2">
-						Email
-					</label>
-					<input
-						className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-						placeholder="Enter your email"
-						{...register('email', {
-							required: 'Email is required',
-							pattern: {
-								value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-								message: 'Invalid email address',
-							},
-						})}
-					/>
-					<span className="text-red-600">{errors.email?.message}</span>
-				</div>
-				<div className="mb-4">
-					<label className="block text-gray-700 text-sm font-bold mb-2">
-						Password
-					</label>
-					<input
-						className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-						type="password"
-						placeholder="Enter your password"
-						{...register('password', {
-							required: 'Password is required',
-							pattern: {
-								value: /^(?=.*[A-Za-z0-9]).{6,}$/,
-								message: 'Password must be at least 6 letters or numbers',
-							},
-						})}
-					/>
+				<div className="md:flex items-center justify-around">
+					<div className="">
+						<div className="mb-4">
+							<label className="block text-gray-700 text-sm font-bold mb-2">
+								Email
+							</label>
+							<input
+								className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+								placeholder="Enter your email"
+								{...register('email', {
+									required: 'Email is required',
+									pattern: {
+										value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+										message: 'Invalid email address',
+									},
+								})}
+							/>
+							<span className="text-red-600">{errors.email?.message}</span>
+						</div>
+						<div className="mb-4">
+							<label className="block text-gray-700 text-sm font-bold mb-2">
+								Password
+							</label>
+							<input
+								className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+								type="password"
+								placeholder="Enter your password"
+								{...register('password', {
+									required: 'Password is required',
+									pattern: {
+										value: /^(?=.*[A-Za-z0-9]).{6,}$/,
+										message: 'Password must be at least 6 letters or numbers',
+									},
+								})}
+							/>
 
-					<span className="text-red-600">{errors.password?.message}</span>
-				</div>
+							<span className="text-red-600">{errors.password?.message}</span>
+						</div>
 
-				<div className="text-center">
-					<input className="btn btn-wide mt-2" type="submit" value="Login" />
-				</div>
+						<div className="text-center">
+							<input
+								className="btn btn-wide bg-orange-600 hover:bg-orange-600 hover:shadow-lg border-none"
+								type="submit"
+								value="Login"
+							/>
+						</div>
 
-				<div className="text-center py-10">
-					<p>
-						Or Sign Up using
-						<button
-							onClick={googleLogin}
-							className="bg-blue-600 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline flex items-center gap-2 mx-auto mt-2"
-							type="button"
-						>
-							Google <FaGoogle />
-						</button>
-					</p>
-				</div>
-				<div className="text-center">
-					New to the website? Please{' '}
-					<Link
-						to="/register"
-						className="cursor-pointer text-blue-700 link-hover"
-					>
-						Register
-					</Link>
+						<div className="text-center py-10">
+							<p>
+								Or Sign Up using
+								<button
+									onClick={googleLogin}
+									className="bg-blue-600 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline flex items-center gap-2 mx-auto mt-2"
+									type="button"
+								>
+									Google <FaGoogle />
+								</button>
+							</p>
+						</div>
+						<div className="text-center">
+							New to the website? Please{' '}
+							<Link
+								to="/register"
+								className="cursor-pointer text-blue-700 link-hover"
+							>
+								Register
+							</Link>
+						</div>
+					</div>
+					<div className="hidden md:inline-block">
+						<Lottie options={defaultOptions} height={500} width={400} />
+					</div>
 				</div>
 			</form>
 		</div>
