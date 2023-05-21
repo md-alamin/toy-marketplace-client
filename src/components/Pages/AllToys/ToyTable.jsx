@@ -4,7 +4,7 @@ import { Modal } from 'react-responsive-modal';
 import 'react-responsive-modal/styles.css';
 import { Link } from 'react-router-dom';
 
-const ToyTable = ({ toy, update, handleDelete, onSubmit }) => {
+const ToyTable = ({ toy, update, handleDelete, onSubmit, idx }) => {
 	const [showModal, setShowModal] = useState(false);
 	const {
 		register,
@@ -14,12 +14,13 @@ const ToyTable = ({ toy, update, handleDelete, onSubmit }) => {
 
 	return (
 		<tr>
+			<td>{idx}.</td>
 			{update ? '' : <td>{toy?.seller_name}</td>}
 			<td className="font-bold">{toy.name}</td>
 			<td>{toy.sub_category}</td>
 			<td>${toy.price}</td>
 			<td>{toy.quantity}</td>
-			<th>
+			<td>
 				{update ? (
 					<div className="flex gap-2">
 						<div>
@@ -128,7 +129,7 @@ const ToyTable = ({ toy, update, handleDelete, onSubmit }) => {
 						</button>
 					</Link>
 				)}
-			</th>
+			</td>
 		</tr>
 	);
 };

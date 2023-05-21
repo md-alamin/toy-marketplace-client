@@ -33,7 +33,7 @@ const Subcategory = ({ toy }) => {
 			</figure>
 			<div className="card-body items-center text-center">
 				<h2 className="card-title">{name}</h2>
-				<div className="flex justify-between w-full my-4 gap-6">
+				<div className="md:flex justify-between w-full my-4 gap-2">
 					<p>Price: ${price}</p>
 					<p>Rating: {rating} star</p>
 				</div>

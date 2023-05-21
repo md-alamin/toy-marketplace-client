@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import logo from '../../assets/logo.png';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../providers/AuthProvider';
 import userProfile from '../../assets/default-avatar.png';
 import Swal from 'sweetalert2';
@@ -40,27 +40,27 @@ const Header = () => {
 							className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
 						>
 							<li>
-								<Link to="/">Home</Link>
+								<NavLink to="/">Home</NavLink>
 							</li>
 							<li>
-								<Link to="/allToys">All toys</Link>
+								<NavLink to="/allToys">All toys</NavLink>
 							</li>
 							{user ? (
 								<li>
-									<Link to="/myToys">My toys</Link>
+									<NavLink to="/myToys">My toys</NavLink>
 								</li>
 							) : (
 								''
 							)}
 							{user ? (
 								<li>
-									<Link to="/addAToy">Add A Toy</Link>
+									<NavLink to="/addAToy">Add A Toy</NavLink>
 								</li>
 							) : (
 								''
 							)}
 							<li>
-								<Link to="/blogs">Blogs</Link>
+								<NavLink to="/blogs">Blogs</NavLink>
 							</li>
 							{user ? (
 								<div className="flex flex-col sm:flex-row items-center justify-between mt-4 sm:mt-0">
@@ -84,14 +84,14 @@ const Header = () => {
 									</div>
 									<Link
 										onClick={handleLogOut}
-										className="btn btn-wide bg-orange-500 border-none hover:bg-orange-600 hover:shadow-xl"
+										className="btn bg-orange-500 border-none hover:bg-orange-600 hover:shadow-xl"
 									>
 										Log Out
 									</Link>
 								</div>
 							) : (
 								<li>
-									<Link to="/login">Log in</Link>
+									<NavLink to="/login">Log in</NavLink>
 								</li>
 							)}
 						</ul>
@@ -104,27 +104,27 @@ const Header = () => {
 				<div className="navbar-end w-full hidden lg:flex">
 					<ul className="menu menu-horizontal px-1 items-center font-bold">
 						<li>
-							<Link to="/">Home</Link>
+							<NavLink to="/">Home</NavLink>
 						</li>
 						<li>
-							<Link to="/allToys">All toys</Link>
+							<NavLink to="/allToys">All toys</NavLink>
 						</li>
 						{user ? (
 							<li>
-								<Link to="/myToys">My toys</Link>
+								<NavLink to="/myToys">My toys</NavLink>
 							</li>
 						) : (
 							''
 						)}
 						{user ? (
 							<li>
-								<Link to="/addAToy">Add A Toy</Link>
+								<NavLink to="/addAToy">Add A Toy</NavLink>
 							</li>
 						) : (
 							''
 						)}
 						<li>
-							<Link to="/blogs">Blogs</Link>
+							<NavLink to="/blogs">Blogs</NavLink>
 						</li>
 						{user ? (
 							<div className="flex items-center justify-between">
@@ -155,7 +155,7 @@ const Header = () => {
 							</div>
 						) : (
 							<li>
-								<Link to="/login">Log in</Link>
+								<NavLink to="/login">Log in</NavLink>
 							</li>
 						)}
 					</ul>

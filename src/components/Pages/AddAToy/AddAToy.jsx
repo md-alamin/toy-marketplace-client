@@ -30,7 +30,9 @@ const AddAToy = () => {
 			showConfirmButton: false,
 			timer: 2000,
 		});
-		navigate('/myToys');
+		setTimeout(() => {
+			navigate('/myToys');
+		}, 2000);
 	};
 
 	return (
@@ -51,7 +53,7 @@ const AddAToy = () => {
 								required: 'Photo is required',
 							})}
 						/>
-						<span className="text-red-600">{errors.photo?.message}</span>
+						<span className="text-red-600">{errors.image?.message}</span>
 					</div>
 					<div className="mb-4">
 						<label className="block text-gray-700 text-sm font-bold mb-2">
@@ -78,7 +80,7 @@ const AddAToy = () => {
 								required: 'Name is required',
 							})}
 						/>
-						<span className="text-red-600">{errors.seller?.message}</span>
+						<span className="text-red-600">{errors.seller_name?.message}</span>
 					</div>
 					<div className="mb-4">
 						<label className="block text-gray-700 text-sm font-bold mb-2">
@@ -87,12 +89,9 @@ const AddAToy = () => {
 						<input
 							className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
 							placeholder="Enter your name"
-							defaultValue={user?.email}
-							{...register('seller_email', {
-								required: 'Email is required',
-							})}
+							value={user?.email}
+							{...register('seller_email')}
 						/>
-						<span className="text-red-600">{errors.seller?.message}</span>
 					</div>
 					<div className="mb-4">
 						<label className="block text-gray-700 text-sm font-bold mb-2">

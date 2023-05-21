@@ -24,14 +24,26 @@ const AllToys = () => {
 		event.preventDefault();
 		const form = event.target;
 		const search = form.search.value;
-		fetch(
-			`https://toy-marketplace-server-tau.vercel.app/allToys/search/${search}`
-		)
-			.then((res) => res.json())
-			.then((data) => {
-				setDisplayToys(data);
-			})
-			.catch((e) => console.log(e));
+		{
+			search
+				? fetch(
+						`https://toy-marketplace-server-tau.vercel.app/allToys/search/${search}`
+				  )
+						.then((res) => res.json())
+						.then((data) => {
+							setDisplayToys(data);
+						})
+						.catch((e) => console.log(e))
+				: fetch(`https://toy-marketplace-server-tau.vercel.app/allToys`)
+						.then((res) => res.json())
+						.then((data) => {
+							setDisplayToys(data);
+							setLoader(false);
+						})
+						.catch((e) => {
+							console.log(e);
+						});
+		}
 	};
 
 	if (loader) {
@@ -75,6 +87,7 @@ const AllToys = () => {
 						{/* head */}
 						<thead>
 							<tr className="bg-base-300 rounded">
+								<th></th>
 								<th className="text-xl">Toy Name</th>
 								<th className="text-xl">Seller</th>
 								<th className="text-xl">Sub-category</th>
@@ -84,8 +97,8 @@ const AllToys = () => {
 							</tr>
 						</thead>
 						<tbody>
-							{displayToys.map((toy) => (
-								<ToyTable key={toy._id} toy={toy}></ToyTable>
+							{displayToys.map((toy, idx) => (
+								<ToyTable key={toy._id} toy={toy} idx={idx + 1}></ToyTable>
 							))}
 						</tbody>
 					</table>

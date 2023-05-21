@@ -63,7 +63,7 @@ const MyToys = () => {
 	};
 
 	const handleDelete = (id) => {
-		const swalWithBootstrapButtons = Swal.mixin({
+		const swalWithButtons = Swal.mixin({
 			customClass: {
 				confirmButton: 'btn bg-red-600 hover:bg-red-700 border-none',
 				cancelButton: 'btn bg-green-600 hover:bg-green-700 border-none ml-2',
@@ -71,7 +71,7 @@ const MyToys = () => {
 			buttonsStyling: false,
 		});
 
-		swalWithBootstrapButtons
+		swalWithButtons
 			.fire({
 				title: 'Are you sure you want to delete?',
 				text: "You won't be able to revert this!",
@@ -88,7 +88,7 @@ const MyToys = () => {
 						.then((res) => res.json())
 						.then((data) => {
 							if (data.deletedCount > 0) {
-								swalWithBootstrapButtons.fire(
+								swalWithButtons.fire(
 									'Deleted!',
 									'Your toy has been deleted.',
 									'success'
@@ -145,7 +145,7 @@ const MyToys = () => {
 						<select
 							onChange={handleSort}
 							value={selectedValue}
-							className="w-2/3 md:w-1/3 px-4 py-2 pr-8 leading-tight bg-white border border-orange-300 rounded-md appearance-none focus:outline-none focus:border-orange-600 text-center"
+							className="w-2/3 md:w-1/4 px-4 py-2 pr-8 leading-tight bg-white border border-orange-300 rounded-md appearance-none focus:outline-none focus:border-orange-600 text-center"
 						>
 							<option value="option1" disabled>
 								Sort by Price
@@ -159,6 +159,7 @@ const MyToys = () => {
 							{/* head */}
 							<thead>
 								<tr className="bg-base-300 rounded">
+									<th></th>
 									<th className="text-xl">Toy Name</th>
 									<th className="text-xl">Sub-category</th>
 									<th className="text-xl">Price</th>
@@ -167,10 +168,11 @@ const MyToys = () => {
 								</tr>
 							</thead>
 							<tbody>
-								{userToy.map((toy) => (
+								{userToy.map((toy, idx) => (
 									<ToyTable
 										key={toy._id}
 										toy={toy}
+										idx={idx + 1}
 										update={true}
 										handleDelete={handleDelete}
 										onSubmit={onSubmit}
