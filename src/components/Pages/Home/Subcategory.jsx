@@ -28,7 +28,7 @@ const Subcategory = ({ toy }) => {
 					src={image}
 					loading="lazy"
 					alt=""
-					className="rounded-xl h-52 lg:w-40"
+					className="rounded-xl h-52 w-[90vw] md:w-40"
 				/>
 			</figure>
 			<div className="card-body items-center text-center">

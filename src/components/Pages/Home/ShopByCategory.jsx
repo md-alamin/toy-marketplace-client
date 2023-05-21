@@ -7,6 +7,8 @@ import 'aos/dist/aos.css';
 const ShopByCategory = () => {
 	const [subcategory, setSubcategory] = useState('avengers');
 	const [displayToys, setDisplayToys] = useState([]);
+	const [showCategory, setShowCategory] = useState(3);
+	const [display, setDisplay] = useState('');
 
 	useEffect(() => {
 		AOS.init({
@@ -23,6 +25,11 @@ const ShopByCategory = () => {
 			})
 			.catch((e) => console.log(e));
 	}, [subcategory]);
+
+	const handleShowAll = () => {
+		setShowCategory(10000000);
+		setDisplay('hidden');
+	};
 	return (
 		<div className="container mx-auto text-center py-20">
 			<h1 className="my-10 text-2xl sm:text-5xl font-bold">
@@ -35,7 +42,11 @@ const ShopByCategory = () => {
 						{({ selected }) => (
 							/* Use the `selected` state to conditionally style the selected tab. */
 							<button
-								onClick={() => setSubcategory('avengers')}
+								onClick={() => {
+									setSubcategory('avengers');
+									setDisplay('');
+									setShowCategory(3);
+								}}
 								className={
 									selected
 										? 'bg-orange-600 border-none text-white p-3 rounded-lg'
@@ -50,7 +61,11 @@ const ShopByCategory = () => {
 						{({ selected }) => (
 							/* Use the `selected` state to conditionally style the selected tab. */
 							<button
-								onClick={() => setSubcategory('guardians')}
+								onClick={() => {
+									setSubcategory('guardians');
+									setDisplay('');
+									setShowCategory(3);
+								}}
 								className={
 									selected
 										? 'bg-orange-600 border-none text-white mx-10 p-3 rounded-lg my-2'
@@ -65,7 +80,11 @@ const ShopByCategory = () => {
 						{({ selected }) => (
 							/* Use the `selected` state to conditionally style the selected tab. */
 							<button
-								onClick={() => setSubcategory('xmen')}
+								onClick={() => {
+									setSubcategory('xmen');
+									setDisplay('');
+									setShowCategory(3);
+								}}
 								className={
 									selected
 										? 'bg-orange-600 border-none text-white p-3 rounded-lg'
@@ -86,32 +105,33 @@ const ShopByCategory = () => {
 				>
 					<Tab.Panel>
 						<div className="grid lg:grid-cols-3 place-items-center">
-							{displayToys.slice(0, 3).map((toy) => (
+							{displayToys.slice(0, showCategory).map((toy) => (
 								<Subcategory key={toy._id} toy={toy}></Subcategory>
 							))}
 						</div>
 					</Tab.Panel>
 					<Tab.Panel>
 						<div className="grid lg:grid-cols-3 place-items-center">
-							{displayToys.slice(0, 3).map((toy) => (
+							{displayToys.slice(0, showCategory).map((toy) => (
 								<Subcategory key={toy._id} toy={toy}></Subcategory>
 							))}
 						</div>
 					</Tab.Panel>
 					<Tab.Panel>
 						<div className="grid lg:grid-cols-3 place-items-center">
-							{displayToys.slice(0, 3).map((toy) => (
+							{displayToys.slice(0, showCategory).map((toy) => (
 								<Subcategory key={toy._id} toy={toy}></Subcategory>
 							))}
 						</div>
-						{/* <btn className="btn bg-orange-600 border-none hover:shadow-2xl hover:bg-orange-600 mt-8">
-								View All in Sub-Category
-							</btn>
-							for later maybe
-							 */}
 					</Tab.Panel>
 				</Tab.Panels>
 			</Tab.Group>
+			<btn
+				onClick={handleShowAll}
+				className={`btn bg-orange-600 border-none hover:shadow-2xl hover:bg-orange-600 mt-8 ${display}`}
+			>
+				View All in Sub-Category
+			</btn>
 		</div>
 	);
 };
