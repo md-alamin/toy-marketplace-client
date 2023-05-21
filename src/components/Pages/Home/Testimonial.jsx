@@ -36,7 +36,7 @@ const Testimonial = () => {
 							child arrived promptly and were exactly as described. The smile on
 							my little one's face was priceless.
 						</p>
-						<h2 className="card-title pb-4 sm:pb-0 text-right ml-auto">
+						<h2 className="card-title pb-4 sm:pb-0 text-right ml-auto pr-4">
 							- Emily T., Parent
 						</h2>
 					</div>
@@ -60,7 +60,7 @@ const Testimonial = () => {
 							engaging toys, and I'm so glad I did! The selection is fantastic,
 							and the toys have exceeded my expectations.
 						</p>
-						<h2 className="card-title pb-4 sm:pb-0 text-right ml-auto">
+						<h2 className="card-title pb-4 sm:pb-0 text-right ml-auto pr-4">
 							- David R., Parent
 						</h2>
 					</div>
