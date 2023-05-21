@@ -88,8 +88,8 @@ const AllToys = () => {
 						<thead>
 							<tr className="bg-base-300 rounded">
 								<th></th>
-								<th className="text-xl">Toy Name</th>
 								<th className="text-xl">Seller</th>
+								<th className="text-xl">Toy Name</th>
 								<th className="text-xl">Sub-category</th>
 								<th className="text-xl">Price</th>
 								<th className="text-xl">Available Quantity</th>

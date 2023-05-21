@@ -4,7 +4,7 @@ import GenerateTitle from '../../utils/GenerateTitle';
 const Blogs = () => {
 	GenerateTitle('Marvel Toys | Blogs');
 	return (
-		<div>
+		<div className="mb-10">
 			<h1 className="my-10 text-2xl sm:text-5xl font-bold text-center">
 				This is My Blogs
 			</h1>
