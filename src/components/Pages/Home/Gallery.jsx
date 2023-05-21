@@ -144,7 +144,7 @@ const Gallery = () => {
 								/>
 								<img
 									className="w-full h-56 md:h-80 object-contain rounded-lg shadow-2xl py-10 bg-orange-50"
-									src="https://i.ibb.co/dprbMN9/Cyclops-Action-Figure.jpg"
+									src="https://i.ibb.co/PZK6RVp/Gamora-Figure.jpg"
 									alt=""
 								/>
 								<img
@@ -154,7 +154,7 @@ const Gallery = () => {
 								/>
 								<img
 									className="w-full h-56 md:h-80 object-contain rounded-lg shadow-2xl py-10 bg-orange-50"
-									src="https://i.ibb.co/PZK6RVp/Gamora-Figure.jpg"
+									src="https://i.ibb.co/dprbMN9/Cyclops-Action-Figure.jpg"
 									alt=""
 								/>
 							</div>

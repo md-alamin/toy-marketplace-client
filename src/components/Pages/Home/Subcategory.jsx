@@ -24,7 +24,12 @@ const Subcategory = ({ toy }) => {
 	return (
 		<div className="card max-w-[280px] min-h-[512px] mt-4 md:w-96 bg-orange-50 shadow-xl border hover:scale-105 transition-all">
 			<figure className="px-10 pt-10">
-				<img src={image} alt="Shoes" className="rounded-xl h-52 lg:w-40" />
+				<img
+					src={image}
+					loading="lazy"
+					alt=""
+					className="rounded-xl h-52 lg:w-40"
+				/>
 			</figure>
 			<div className="card-body items-center text-center">
 				<h2 className="card-title">{name}</h2>
